@@ -17,7 +17,6 @@ public class Customer {
     private Long id;
 
 
-
     @Column(name = "address")
     private String address;
 
@@ -45,16 +44,14 @@ public class Customer {
     @Column(name = "zip_code", length = 12)
     private String zipCode;
 
-  //  @Column(name = "state", nullable = false, columnDefinition = "INT(1) default 0")
+    //  @Column(name = "state", nullable = false, columnDefinition = "INT(1) default 0")
 //@ColumnDefault("0")
 //@Column(name = "state", nullable = false)
 //@Enumerated(EnumType.ORDINAL)
-  @ColumnDefault("0")
-  @Column(name = "state", nullable = false)
-  @Enumerated(EnumType.ORDINAL)
-  public CustomerState customerState;
-
-
+    @ColumnDefault("0")
+    @Column(name = "state", nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    public CustomerState customerState;
 
 
     public Long getId() {
@@ -144,6 +141,7 @@ public class Customer {
     public void setCustomerState(CustomerState customerState) {
         this.customerState = customerState;
     }
+
     public void setNotNullData(Customer newCustomer) {
         if (newCustomer.getAddress() != null) {
             this.setAddress(newCustomer.getAddress());
@@ -164,4 +162,6 @@ public class Customer {
         // l'avoir pour tous les champs qu'on veut modifier
 
     }
+
+
 }
