@@ -1,7 +1,10 @@
-package model;
+package fr.m2i.crm.model;
 
 
 
+
+import fr.m2i.crm.state.CustomerState;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -12,6 +15,8 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
 
     @Column(name = "address")
     private String address;
@@ -39,6 +44,18 @@ public class Customer {
 
     @Column(name = "zip_code", length = 12)
     private String zipCode;
+
+  //  @Column(name = "state", nullable = false, columnDefinition = "INT(1) default 0")
+//@ColumnDefault("0")
+//@Column(name = "state", nullable = false)
+//@Enumerated(EnumType.ORDINAL)
+  @ColumnDefault("0")
+  @Column(name = "state", nullable = false)
+  @Enumerated(EnumType.ORDINAL)
+  public CustomerState customerState;
+
+
+
 
     public Long getId() {
         return id;
@@ -119,4 +136,13 @@ public class Customer {
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
     }
+
+    public CustomerState getCustomerState() {
+        return customerState;
+    }
+
+    public void setCustomerState(CustomerState customerState) {
+        this.customerState = customerState;
+    }
+
 }

@@ -1,4 +1,4 @@
-package helper;
+package fr.m2i.crm.helper;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

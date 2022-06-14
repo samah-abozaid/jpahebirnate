@@ -1,7 +1,6 @@
 package fr.m2i.crm;
 
-import helper.SessionHelper;
-import org.hibernate.Session;
+import fr.m2i.crm.helper.SessionHelper;
 
 import javax.persistence.*;
 
@@ -11,7 +10,7 @@ public class Main {
        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("crm2");
        // EntityManager entityManager = emf.createEntityManager();
         EntityManager entityManager = SessionHelper.getEntityManager();
-
+        entityManager.close();
 
 
 
